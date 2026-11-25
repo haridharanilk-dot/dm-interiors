@@ -1,0 +1,27 @@
+@import '@fontsource/instrument-serif/400.css';
+@import '@fontsource/instrument-serif/400-italic.css';
+@import '@fontsource-variable/hanken-grotesk';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { @apply bg-ivory text-walnut font-sans antialiased overflow-x-hidden; }
+  :focus-visible { outline: 2px solid #865D36; outline-offset: 3px; border-radius: 2px; }
+  ::selection { background: #AC8968; color: #FCFAF7; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+.draw-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.2s ease-in-out forwards; }
+.fade-in-late { opacity: 0; animation: fadeIn 1s ease 2.4s forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fadeIn { to { opacity: .8; } }
+
+section[id] { scroll-margin-top: 5rem; }
+
+.hero-zoom { animation: heroZoom 6s ease-in-out infinite alternate; will-change: transform; }
+@keyframes heroZoom { from { transform: scale(1); } to { transform: scale(1.12); } }
